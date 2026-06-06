@@ -27,16 +27,12 @@ export default function Projects({ onViewAllProjects }: { onViewAllProjects?: ()
         {/* Header containing title and buttons */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-10">
           <div className="space-y-4">
-            <span className="font-mono text-[10px] tracking-[0.3em] text-gold uppercase font-bold block">
-              PORTFOLIO SHOWCASE
-            </span>
-            <h2 className="font-serif text-3xl md:text-5xl font-light tracking-tight text-white uppercase">
-              REVOLUTIONARY <br className="hidden sm:block" />
-              <span className="font-sans font-semibold text-gold italic tracking-wide">PROJECTS</span>
+          
+            <h2 className="font-serif font-semibold text-3xl md:text-5xl font-light tracking-tight text-white uppercase">
+              PROJECTS <br className="hidden sm:block" />
+              
             </h2>
-            <p className="font-sans font-light text-xs sm:text-sm text-gray-400 max-w-lg leading-relaxed uppercase tracking-wider">
-              Explore our curated selection of retail concept layouts, photorealistic 3D modeling, and premium commercial interior spaces.
-            </p>
+          
           </div>
 
           <div className="text-left md:text-right font-mono text-[11px] tracking-widest text-white/50 max-w-xs uppercase">
@@ -102,15 +98,22 @@ export default function Projects({ onViewAllProjects }: { onViewAllProjects?: ()
 
                 {/* Text Card details */}
                 <div className="p-6 md:p-8">
-                  <div className="space-y-1">
-                    <h3 className={`font-serif text-xl font-normal transition-colors duration-300 ${
-                      isActive ? "text-gold" : "text-white group-hover:text-gold"
-                    }`}>
-                      {project.title}
-                    </h3>
-                    <p className="font-mono text-[10px] tracking-[0.25em] text-[#B28B45] uppercase font-semibold">
-                      {project.subtitle}
-                    </p>
+                  <div className="space-y-3">
+                    <div className="space-y-1">
+                      <h3 className={`font-serif text-xl font-normal transition-colors duration-300 ${
+                        isActive ? "text-gold" : "text-white group-hover:text-gold"
+                      }`}>
+                        {project.title}
+                      </h3>
+                      <p className="font-mono text-[10px] tracking-[0.25em] text-[#B28B45] uppercase font-semibold">
+                        {project.subtitle}
+                      </p>
+                    </div>
+                    {project.description && (
+                      <p className="font-sans text-xs text-gray-400 font-light leading-relaxed">
+                        {project.description}
+                      </p>
+                    )}
                   </div>
                 </div>
               </motion.div>

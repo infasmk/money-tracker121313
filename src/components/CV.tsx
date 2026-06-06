@@ -16,6 +16,18 @@ import {
 } from "lucide-react";
 
 export default function CV({ onBackToHome }: { onBackToHome: () => void }) {
+  useEffect(() => {
+    // Force body / html background color so that any overscrolling is seamlessly beige
+    const originalBg = document.body.style.backgroundColor;
+    const originalHtmlBg = document.documentElement.style.backgroundColor;
+    document.body.style.backgroundColor = "#FAF9F5";
+    document.documentElement.style.backgroundColor = "#FAF9F5";
+    return () => {
+      document.body.style.backgroundColor = originalBg;
+      document.documentElement.style.backgroundColor = originalHtmlBg;
+    };
+  }, []);
+
   // Static Data
   const STATS = [
     { value: "3+", label: "Years Experience" },
@@ -82,7 +94,7 @@ export default function CV({ onBackToHome }: { onBackToHome: () => void }) {
   return (
     <div className="pt-16 pb-0 min-h-screen text-neutral-800 relative z-10 w-full bg-[#FAF9F5]">
       {/* Visual Background Blueprint System & Fine Grid Lines */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.06] select-none z-0">
+      <div className="absolute inset-0 pointer-events-none opacity-[0.06] select-none z-0 overflow-hidden">
         <div className="w-full h-full bg-[linear-gradient(to_right,rgba(0,0,0,0.15)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.15)_1px,transparent_1px)] bg-[size:24px_24px]" />
         <div className="absolute top-1/4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C5A059] to-transparent" />
         <div className="absolute top-3/4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C5A059] to-transparent" />
@@ -110,7 +122,7 @@ export default function CV({ onBackToHome }: { onBackToHome: () => void }) {
                 CREATIVE ARCHITECTURE & DESIGN LEADER
               </span>
               <h1 className="font-serif text-5xl md:text-7xl font-extralight text-neutral-900 leading-tight tracking-tight">
-               AKASH SUNDHAKAR
+                AJAY
               </h1>
               <h2 className="font-mono text-xs md:text-sm tracking-[0.25em] text-neutral-800 uppercase font-light border-l border-[#C5A059] pl-3">
                 Architect <span className="text-[#C5A059] mx-2">|</span> Retail Design Specialist <span className="text-[#C5A059] mx-2">|</span> Creative Design Professional
@@ -350,7 +362,6 @@ export default function CV({ onBackToHome }: { onBackToHome: () => void }) {
                   >
                     <span className="text-[#C5A059]/80 text-[10px]">✦</span>
                     <span className="font-semibold">{skill.name}</span>
-                    <span className="text-[9px] text-[#B28B45] font-light">({skill.proficiency}%)</span>
                   </div>
                 ))}
               </div>
@@ -434,48 +445,14 @@ export default function CV({ onBackToHome }: { onBackToHome: () => void }) {
               </div>
 
               <div className="flex-1 grid grid-cols-2 gap-4">
-                <div className="bg-white border border-neutral-200/80 p-6 flex flex-col items-center justify-center space-y-3 shadow-sm hover:shadow-md hover:border-[#C5A059]/30 transition-all duration-300 h-full">
-                  <div className="relative w-16 h-16 flex items-center justify-center">
-                    <svg className="absolute inset-0 w-full h-full rotate-270" viewBox="0 0 36 36">
-                      <circle cx="18" cy="18" r="16" fill="none" stroke="currentColor" strokeWidth="1" className="text-neutral-100" />
-                      <circle
-                        cx="18"
-                        cy="18"
-                        r="16"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        className="text-[#C5A059]"
-                        strokeDasharray="100, 100"
-                        strokeDashoffset="0"
-                      />
-                    </svg>
-                    <span className="font-mono text-xs text-neutral-900 font-bold">100%</span>
-                  </div>
-                  <span className="font-serif text-xs uppercase tracking-widest text-neutral-900 font-medium">TAMIL</span>
-                  <span className="font-mono text-[8px] text-neutral-500 uppercase">Native Proficiency</span>
+                <div className="bg-white border border-neutral-200/80 p-6 flex flex-col items-center justify-center space-y-2.5 shadow-sm hover:shadow-md hover:border-[#C5A059]/30 transition-all duration-300 h-full">
+                  <span className="font-serif text-sm uppercase tracking-widest text-neutral-900 font-semibold">TAMIL</span>
+                  <span className="font-mono text-[9px] text-[#B28B45] uppercase tracking-wider font-bold bg-[#B28B45]/5 px-2.5 py-1 rounded">Native Speaker</span>
                 </div>
 
-                <div className="bg-white border border-neutral-200/80 p-6 flex flex-col items-center justify-center space-y-3 shadow-sm hover:shadow-md hover:border-[#C5A059]/30 transition-all duration-300 h-full">
-                  <div className="relative w-16 h-16 flex items-center justify-center">
-                    <svg className="absolute inset-0 w-full h-full rotate-270" viewBox="0 0 36 36">
-                      <circle cx="18" cy="18" r="16" fill="none" stroke="currentColor" strokeWidth="1" className="text-neutral-100" />
-                      <circle
-                        cx="18"
-                        cy="18"
-                        r="16"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        className="text-[#C5A059]"
-                        strokeDasharray="100, 100"
-                        strokeDashoffset="0"
-                      />
-                    </svg>
-                    <span className="font-mono text-xs text-neutral-900 font-bold">100%</span>
-                  </div>
-                  <span className="font-serif text-xs uppercase tracking-widest text-[#050505] font-medium">ENGLISH</span>
-                  <span className="font-mono text-[8px] text-neutral-500 uppercase">Professional Status</span>
+                <div className="bg-white border border-neutral-200/80 p-6 flex flex-col items-center justify-center space-y-2.5 shadow-sm hover:shadow-md hover:border-[#C5A059]/30 transition-all duration-300 h-full">
+                  <span className="font-serif text-sm uppercase tracking-widest text-[#050505] font-semibold">ENGLISH</span>
+                  <span className="font-mono text-[9px] text-[#B28B45] uppercase tracking-wider font-bold bg-[#B28B45]/5 px-2.5 py-1 rounded">Professional Status</span>
                 </div>
               </div>
             </div>
@@ -516,7 +493,7 @@ export default function CV({ onBackToHome }: { onBackToHome: () => void }) {
                       DIRECT INQUIRY
                     </span>
                     <h3 className="font-serif text-xl font-light text-neutral-900 uppercase tracking-wider">
-                    AKASH SUNDHAKAR
+                    AJAY
                     </h3>
                   </div>
                   <div className="border border-[#C5A059]/20 p-1 bg-neutral-50 group-hover:border-[#C5A059]/50 transition-colors">
@@ -534,8 +511,8 @@ export default function CV({ onBackToHome }: { onBackToHome: () => void }) {
 
                   <div className="flex justify-between items-center pb-1">
                     <span className="font-mono text-[9px] tracking-widest text-[#B28B45] uppercase font-semibold">EMAIL</span>
-                    <a href="mailto:akashsudhakar@gmail.com" className="font-mono text-xs text-neutral-800 hover:text-[#C5A059] transition-colors underline font-semibold">
-                      akashsudhakar@gmail.com
+                    <a href="mailto:infaazmk@gmail.com" className="font-mono text-xs text-neutral-800 hover:text-[#C5A059] transition-colors underline font-semibold">
+                      infaazmk@gmail.com
                     </a>
                   </div>
                 </div>

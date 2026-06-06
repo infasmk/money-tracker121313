@@ -4,7 +4,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative w-full py-12 md:py-16 bg-luxury-black text-white overflow-hidden border-b border-white/5"
+      className="relative w-full py-24 md:py-36 bg-luxury-black text-white overflow-hidden border-b border-white/5"
     >
       {/* Light highlights in background */}
       <div className="absolute top-[40%] left-[-10%] w-72 h-72 bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
@@ -17,14 +17,10 @@ export default function About() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="space-y-8 text-center flex flex-col items-center"
         >
-          {/* Small Label */}
-          <span className="font-mono text-[10px] tracking-[0.3em] text-gold uppercase font-bold block">
-            PIONEERING ARCHITECTURE
-          </span>
 
           {/* Main Title */}
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-white leading-tight">
-            ABOUT <span className="font-semibold text-gold font-sans italic tracking-wide">?</span>
+            About<span className="font-semibold text-gold font-sans italic tracking-wide">?</span>
           </h2>
 
           {/* Divider line */}
